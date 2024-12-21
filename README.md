@@ -9,7 +9,7 @@ Dumping and restoring data in PostgreSQL using pg_dump and viewing the restored 
      ````bash
          pg_dump -U <username> -h <host> -p <port> -d <database_name> -F c -b -v -f <output_file>.dump
      ````
-     ** Replace <username> with your PostgreSQL username. **
+     **Replace <username> with your PostgreSQL username.**
      -- Replace <host> and <port> with the host (e.g., localhost) and port (e.g., 5432).
      -- Replace <database_name> with the name of the database you want to dump.
      -- -F c specifies the custom format for the dump.
