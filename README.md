@@ -53,11 +53,18 @@ If the target database does not exist, create it first:
 
 Important Notes
   - Dump Options:
-   -- Use -F c for custom format (recommended for pg_restore).
-   -- Use -F t for tar format or -F p for plain SQL script if needed.
+   - Use -F c for custom format (recommended for pg_restore).
+   - Use -F t for tar format or -F p for plain SQL script if needed.
   - Role and Ownership:
-     -- Ensure the user restoring the data has sufficient privileges.
-     -- If ownership issues occur, adjust permissions:
+     - Ensure the user restoring the data has sufficient privileges.
+     - If ownership issues occur, adjust permissions:
    ````bash
        ALTER DATABASE <database_name> OWNER TO <new_owner>;
    ````
+  - Troubleshooting:
+    - **If you encounter errors, add the --clean option to pg_restore to drop existing objects before restoring:**
+    ````bash
+        pg_restore --clean -U postgres -h localhost -p 5432 -d restored_database -v mydatabase.dump
+    ````
+
+With these steps, can successfully dump and restore PostgreSQL data and verify it in pgAdmin.
